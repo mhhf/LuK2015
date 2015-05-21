@@ -1,0 +1,88 @@
+% Article template for Mathematics Magazine
+% Revised 7/2002  Thanks for Greg St. George
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\renewcommand{\baselinestretch}{1.2}
+%This is the command that spaces the manuscript for easy reading
+\newtheorem{zeige}{Zeige}
+
+\begin{document}
+%\thispagestyle{empty}
+\begin{center}
+\Large
+% TITLE GOES HERE
+Logik und Komplexität  \textsc{ Übung 5 }
+\end{center}
+
+\begin{flushright}
+Notizen zur fünften Übung\\
+HU Berlin \\
+
+\vspace{2 mm}
+
+\end{flushright}
+
+\subsubsection*{Aufgabe 1)}
+\subsubsection*{Aufgabe 2)}
+\begin{zeige}
+  Falls $|A| < |B|$ und $|A| \leq 2^m$ so hat Spoiler eine Gewinnstrategie in m-Runden EF-Spiel auf $\mathcal{A}$ und $\mathcal{B}$.
+\end{zeige}
+
+\paragraph{$(**)_i$}: Sind $a_{2+1},...,a_{2+i}$ und $b_{2+1},..,b_{2+i}$ die in Runden $1, ..., i$ gewählten Elemente in A und B, so gibt es $j,j'\in {1,...,2+i}$ so dass gilt: \\
+  1. $(a_j <^A a_{j'}\text{ und }b_j \geq^B b_j )\text{ oder }(a_j \geq^A a_{j'}\text{ und } b_j <^B b_{j'}) $\\
+  oder\\
+  2. $Dist(a_j,a_{j'})<2^{m-i}\text{ und } Dist(a_j,a_{j'})<Dist(b_j,b_{j'})$
+
+\begin{zeige}
+  $(**)_i$ gilt für jeden Schritt i: \\
+
+  \textbf{IV:} $|A| < |B|$ und $|A| \leq 2^m$ \\
+  \\
+  \textbf{IA: $i=0$} $(**)_0$ gilt, durch die IV \\
+  \textbf{IS: $i\rightarrow i+1:$} \\
+  Sp. wählt in Runde $i+1$ das Element $b_{i+1}$ mit $b_j<b_{i+1}<b_{j'}$ mit $Dist(b_j,b_{i+1})=2^{m-(i+1)}$ \\
+  Seien $a_j,a_{j'}$ jeweils die in Runde $j,j'$ von Dup gespielten Elemente. \\
+  \textbf{zeige: } f.a. $a_{i+1}$ gilt $(**)_{i+1}$ \\
+  \textbf{ Fall 1: } $a_{i+1} = a_j$ \\
+    $Dist(a_{i+1},a_j) = 0 < 2^{m-(i+1)}$ \\
+    $\Rightarrow (**)_{i+1}$ gilt \\
+  \textbf{ Fall 2: } $a_{i+1} < a_j$ \\
+  gilt nach $(**)_{i+1}.1$ \\
+  \textbf{ Fall 3: } $a_{i+1} > a_{j'}$ \\ 
+  gilt nach $(**)_{i+1}.1$ \\
+  \textbf{ Fall 4: } $a_{j} < a_{i+1} < a_{j'}$ \\
+  \textbf{ Fall 4.1: } $dist(a_j,a_{i+1}) = dist(b_j,b_{i+1})$\\
+  Da $da_{j,j'} < db_{j,j'} \Rightarrow da_{i+1,j'}<db_{i+1,j'}$\\
+  Da $db_{i+1,j'}\geq 2^{m-(i+1)} \Rightarrow da_{i+1,j'}<2^{m-(i+1)}$ \\
+  $\Rightarrow (**)_{i+1}$ gilt \\
+  \textbf{ Fall 4.2: } $dist(a_j,a_{i+1}) < dist(b_j,b_{i+1})$\\
+  Da $db_{i+1,j'} \geq 2^{m-(i+1)} \Rightarrow da_{j,i+1}<2^{m-(i+1)}$\\
+  $\Rightarrow (**)_{i+1}$ gilt \\
+  \textbf{ Fall 4.3: } $dist(a_j,a_{i+1}) > dist(b_j,b_{i+1})$ \\
+  $da_{i+1,j} < 2^{m-i} - da_{j,i+1}$ und $da_{j,i+1} > 2^{m-(i+1)}$ \\
+  $\Rightarrow 2^{m-i} - da_{j,i+1} < 2^{m-(i+1)}$
+  $\Rightarrow (**)_{i+1}$ gilt \\
+
+  
+  
+  
+  
+
+\end{zeige}
+\subsubsection*{Aufgabe 3)}
+
+\textbf{Definition Aquivalenz für Formeln: }\\
+$ \phi \approx_m \psi \Leftrightarrow \text{ für jede Äquivalenzklasse } [(A,\bar a)]_{\approx_m} \text{ so dass für alle } A\in [(A,\bar a)]_{\approx_m}\text{ gilt:}$
+\[ A\models \phi \Leftrightarrow A\models \psi \] \\
+Da es für jede Klasse eine Hintikkaformel gibt die Sie beschreibt gilt für alle $\phi\in FO[\sigma] $ mit $qr(\phi) = m\text{ ein } Q: \phi \equiv \bigvee_{h\in Q\subseteq m-Typen_k[\sigma]} h$. \\
+Da $m-Typen_k[\sigma]$ endlich ist und die Potenzmenge einer endlichen Menge ebenfalls endlich ist, gibt es endlich viele Q's.\\
+Die Vereinigung ($\cup$) über k sowie über m von $m-Typen_k[\sigma]$ liefert nur ebenfalls nur endlich viele Elemente. Somit ist auch bis auf die logische Äquivalenz die menge der $FO[\sigma]$ mit $qr\leq m$ und $frei\subseteq {x_1,...,x_k}$ endlich.
+
+
+\subsubsection*{Aufgabe 4)}
+
+\end{document}

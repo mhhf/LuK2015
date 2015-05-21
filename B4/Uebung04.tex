@@ -103,6 +103,32 @@ Somit ist $\Phi$ ein Aussagenlogischer Horn Satz ist, welcher mit dem Streichung
 $\square$
 
 \subsubsection*{Aufgabe 3)}
+\paragraph{a)}
+Das kleinste m, so dass Spoiler eine Gewinnstrategie im m-Runden Ehrenfeucht-Fraisse Spiel hat ist \textbf{3}.\\
+Gewinnstrategie für Spoiler in 3 Runden: Wähle 3 Punkte in $\mathfrak{B}$, die paarweise getrennt sind.\\
+Gewinnstrategie für Duplicator in 2 Runden: \\
+1. Spiegele Spoilers wahl.\\
+2. Falls Spoiler einen verbundenen Knoten wählt, wähle ebenfalls einen verbundenen, andernfalls wähle einen unverbundenen.
+\paragraph{b)}
+\[ \exists x \exists y \exists z ( x\neq y \land y\neq z \land x \neq z \neg E(x,y) \land \neg E(y,z) \land \neg E(z,x) ) \] 
+
 \subsubsection*{Aufgabe 4)}
+\textbf{SKIZZE}\\
+Gewinnbedingungen für Dup.
+
+1) Für alle $j,j'\in {1,...,k+m}$ gilt $a_j=a_{j'} \Leftrightarrow b_j = b_{j'}$ \\
+2) Die Abbildung $\pi: {a_1,...,a_{k+m}} \rightarrow {b_1,...,b_{k+m}}$ mit 
+\[ \pi(a_j):=b_j \] 
+ist ein partieller Isomorphismus
+
+\paragraph{IA:}
+Sei $m=0$ sowie $k=0$, dann sind Bedingung (1) und (2) nicht verletzt. \\
+Somit besitzt Dup. eine Gewinnstrategie. Und Sp. keine Gewinnstrategie.
+Somit hat nur einer von beiden eine Gewinnstrategie.
+\paragraph{IS:}
+F1: Sei Dub in (m-1) runden eine Gewinnstrategie. Falls es ein Knoten gibt, den spoiler wählen kann, so dass jede Antwort von dup eine verletzung der Bedingung 1 und 2 nach sich zieht. Besitzt Sp eine Gewinnstrategie und Dup nicht. \\
+F2: Sei Sp in (m-1) runden eine Gewinnstrategie. Dan sind die Bedingung (1) ode (2) verletzt. Nach jeder Wahl von $(a,b)$ Bleiben die bedingungen verletzt. Somit behält Sp. eine Gewinnstrategie und Dup. keine.
+Somit hat zu jedem Zustand entweder Dup. oder Sp. eine Gewinnstrategie.
+
 
 \end{document}
