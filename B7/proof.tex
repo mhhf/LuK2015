@@ -56,8 +56,8 @@ HU Berlin \\
   % Sei r=$3^m$: für jeden $3^m$-Umgebungstyp $\varrho$ gilt: $\#_\varrho(\mathfrak{A}) = \#_\varrho (\mathfrak{B})$\\
   
   Da es sich bei S um endliche Strukturen handelt sind $\mathfrak{A}$ und $\mathfrak{B}$ ebenfalls endlich. Sei $r=3^m$.
-  \QUESTION[inline]{Kann ich $k=0$ so annähmen, oder muss ich das für alle $k$ berücksichtigen?}
-  O.b.d.A. ist $k=0$. Somit sind alle Bedingungen vom Satz von Hanf erfüllt. Somit gilt 
+  % \QUESTION[inline]{Kann ich $k=0$ so annähmen, oder muss ich das für alle $k$ berücksichtigen?}
+  Falls $k=0$ so sind alle Bedingungen vom Satz von Hanf erfüllt. Andernfalls folgt aus $\mathfrak{A} \approx_m \mathfrak{B}$ der Isomorphismus beider strukturen für ein beliebiges k. Somit sind hier auch alle Bedinungen Erfüllt. Somit gilt 
   \begin{center}
     Falls $\mathfrak{A} \approx_m \mathfrak{B}$, so $(\mathfrak{A}\in C \Leftrightarrow \mathfrak{B}\in C )$
   \end{center}
@@ -86,7 +86,9 @@ HU Berlin \\
 \subsubsection*{Aufgabe 2)}
 Idee: Zerteilung mit dem Kompositionslemma.
 
-\QUESTION[inline]{konstanten überführen in relationen}
+% \QUESTION[inline]{konstanten überführen in relationen}
+Das EF Spiel wird auf Strukturen gespielt, bei denen alle Konstanten durch eine Sligneton Relation ersetzt wurden. Demnach ist für alle Strukturen $\sigma$ eine relationelle Signatur.
+
 Sei $\mathcal{A}_f := \left. \mathcal{A} \right|_{M_f^{\mathcal{A}}}$.
 
 $\Rightarrow \mathcal{A} := \bigsqcup_{ f\subseteq \sigma_{k, l } } \mathcal{A}_f$
@@ -107,13 +109,9 @@ $\Rightarrow$ um zu zeigen $\mathcal{A}_f \approx_m \mathcal{B}_f$ genügt es de
 
 Falls $|A^{ \mathcal{A}'_f }|=|B^{ \mathcal{B}'_f }|$: dann sind beide Strukturen isomorph und somit gilt: $\mathcal{A}'_f \approx_m \mathcal{B}'_f$.
 
-Falls $|A^{ \mathcal{A}'_f }|,|B^{ \mathcal{B}'_f }| > 2^m$:
+Falls $|A^{ \mathcal{A}'_f }|,|B^{ \mathcal{B}'_f }| > 2^m$: 
 
-\QUESTION[inline]{Was muss bei einer Menge übereinstimmen? Falls Sp. eine Menge auswählt. was kann Dup als valide menge auswählen? müssen sie Gleiche Kardinalität besitzen}
-
-
-
-
+Angenommen Sp. hat eine Gewinnstrategie. Da Elemente aus A nicht in Beziehung zu einander zu bringen sind, muss Sp. den Unterschied anhand der Kardinalität des Universums zeigen. Hierfür könnte er für 2 Quantifizierte Variablen durch eine Binäre suche den Suchraum halbieren. Da nach der Annahme beide Universen die Kardinalität $> 2^m$ besiten, kann nach $m$-Runden immer noch nicht gezeigt werden das sich die Kardinalitäten unterscheiden, was aber ein Wiederspruch zur Annahme ist. Sumit muss Dup. eine Gewinnstrategie besitze. 
 
 
 

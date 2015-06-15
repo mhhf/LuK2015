@@ -1,0 +1,126 @@
+% Article template for Mathematics Magazine
+% Revised 7/2002  Thanks for Greg St. George
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\renewcommand{\baselinestretch}{1.2}
+%This is the command that spaces the manuscript for easy reading
+\newtheorem{zeige}{Zeige}
+
+
+%todo 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\newcommandx{\QUESTION}[2][1=]{\todo[linecolor=none,backgroundcolor=blue!15,bordercolor=none,#1]{\textbf{QUESTION: }#2}}
+
+
+
+\begin{document}
+%\thispagestyle{empty}
+\begin{center}
+\Large
+% TITLE GOES HERE
+Logik und Komplexität  \textsc{ Übung 7 }
+\end{center}
+
+\begin{flushright}
+Denis Erfurt, 532437\\
+HU Berlin \\
+
+\vspace{2 mm}
+
+\end{flushright}
+
+\subsubsection*{Aufgabe 1)}
+\subsubsection*{Aufgabe 2)}
+Sei $GG\subseteq UGraph$ die Klasse der Strukturen, bei denen jeder Knoten 
+einen Geraden Grad besitzt. 
+
+zeige $GG$ ist nicht EMSO-definierbar in $UGraph$.
+
+Laut dem Satz von Ajtai und Fagin genügt es zu zeigen, dass Duplicator eine 
+Gewinnstrategie im (l,m)-Ajtai-Fagin-Spiel besitzt.
+
+\textbf{Phase 1.} Duplicator wählt einen vollständigen-Graphen $\mathfrak{A} = K_{2^{l+m}+1}$.
+
+\textbf{Beobachtung:} für einen vollständigen-Graphen gilt:
+  \[ \text{n ist ungerade} \Leftrightarrow K_n \in GG \] 
+  
+Spoiler wählt hiernach die Mengen $X_1^\mathfrak{A}, ..., X_l^\mathfrak{A} 
+\subseteq V$
+
+Sei $c^\mathfrak{A}(a) := \{ X_i^\mathfrak{A} : a\in X_i^\mathfrak{A} \}$ die
+Farbe eines Knotens $a$. 
+
+Für jede Farbe $f\subseteq \{ X_1^\mathfrak{A}, ..., X_l^\mathfrak{A} \}$ sei
+
+\[ M_f^\mathfrak{A} := \{ a \in A : c^\mathfrak{A}(a) = f \} \] 
+
+\textbf{zeige: } nach l Mengen exestiert exestiert ein $M_f^\mathfrak{A}$ so 
+dass $|M_f^\mathfrak{A}| \geq 2^m$
+
+  Beweis durch vollständige Induktion: 
+  
+  \textbf{Induktionsannahme:} nach der i-ten Menge $X_i^\mathfrak{A}$ exestiert
+  ein $f$ mit $|M_f^\mathfrak{A}| \geq 2^{l-i+m}$
+
+  \textbf{Induktionsanfang:} $i=0$ Wir wissen dass $|A| = 2^{l+m}$. Für $f=\{\}$
+  ist $M_f^\mathfrak{A} = A \Rightarrow |M_f^\mathfrak{A}|\geq 2^{l+m}$
+
+  \textbf{Induktionsschritt:} $i \rightarrow i+1$
+  Nach \textbf{IA} exestiert ein $f$ mit $|M_f^\mathfrak{A}|\geq 2^{l-i+m}$
+  Spoiler wählt ein $X_{i+1}^\mathfrak{A}$.
+
+  Sei $f' := f \cup \{X_{i+1}^\mathfrak{A}\}$
+
+  Nach \textbf{IA} wissen wir:
+  \[ |M_{f'}^\mathfrak{A}| + |M_f^\mathfrak{A}| \geq 2^{l-i+m} \] 
+
+  Falls $|M_{f'}^\mathfrak{A}| < 2^{l-(i+1)+m}$, dann folgt daraus 
+  $|M_f^\mathfrak{A}|\geq 2^{m-(i+1)+m}$
+
+  Falls $|M_f^\mathfrak{A}| < 2^{l-(i+1)+m}$, dann folgt daraus 
+  $|M_{f'}^\mathfrak{A}|\geq 2^{m-(i+1)+m}$
+
+  \textbf{Indunktionsschluss:} Nach l Mengen exestiert eine Farbe f mit 
+  $|M_f^\mathfrak{A}|\geq 2^{m}$
+  
+\textbf{Phase 2.} Duplicator wählt $\mathfrak{B} = K_{2^{l+m}+2}$. Nach Beobachtung
+ist $\mathfrak{B}\in UGraph \setminus GG$
+Weiter wählt Duplicator die Mengen $X_1^\mathfrak{B}, ..., X_l^\mathfrak{B}$ so, 
+dass für jede Farbe $f$ gilt:
+\begin{equation}
+  |M_f^\mathfrak{B}|=|M_f^\mathfrak{A}|\text{ oder } |M_f^\mathfrak{B}|,|M_f^\mathfrak{A}|
+  \geq 2^m \label{eq}
+\end{equation}
+Intuitiv färbt Duplicator den neuen Knoten mit der in $\mathfrak{A}$ häufigsten Farbe.
+
+\textbf{Phase 3.} Betrachte das EF-Spiel auf $\mathfrak{A}' := (\mathfrak{A}, 
+X_1^\mathfrak{A}, ... , X_l^\mathfrak{A})$ und $\mathfrak{B}' := (\mathfrak{B}, 
+X_1^\mathfrak{B}, ... , X_l^\mathfrak{B})$
+
+Für jede Wahl $a_i\in A$ von Spoiler kann Dup wegen (\ref{eq}) ein $b_i\in B$ wählen,
+so dass $c(a)^\mathfrak{A} = c(b)^\mathfrak{B}$:
+Falls $|M_f^\mathfrak{B}|=|M_f^\mathfrak{A}|$ so hat Duplicator eine Gewinnstrategie, 
+in dem er Spoilers züge Kopiert. Falls $|M_f^\mathfrak{B}|,|M_f^\mathfrak{A}|
+\geq 2^m $ so besitzt Duplicator eine Gewinnstrategie, indem er ein neues Element wählt,
+falls Spoiler ein neues Element mit dieser Farbe gewählt hat. Andernfalls falls Spoiler
+ein in Runde i gewähltes Element wählt, so wählt Duplicator in Runde i gewählte Element
+der anderen Struktur. 
+Analog für Spoilers wahl aus $\mathfrak{B}$.
+
+Somit ist gezeigt das Duplicator eine Gewinnstrategie im (l,m)-Ajtai-Fagin-Spiel
+besitzt. Somit ist nach Satz 3.44 $GG$ nicht EMSO-definierbar in $UGraph$. \qed
+
+
+
+
+
+
+\subsubsection*{Aufgabe 3)}
+\subsubsection*{Aufgabe 4)}
+
+\end{document}
