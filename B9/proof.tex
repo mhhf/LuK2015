@@ -1,0 +1,93 @@
+% Article template for Mathematics Magazine
+% Revised 7/2002  Thanks for Greg St. George
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pf2}
+\usepackage{graphicx}
+\renewcommand{\baselinestretch}{1.2}
+%This is the command that spaces the manuscript for easy reading
+\newtheorem{zeige}{Zeige}
+
+
+
+%todo 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\newcommandx{\QUESTION}[2][1=]{\todo[linecolor=none,backgroundcolor=blue!15,bordercolor=none,#1]{\textbf{QUESTION: }#2}}
+
+
+
+\begin{document}
+%\thispagestyle{empty}
+\begin{center}
+\Large
+% TITLE GOES HERE
+Logik und Komplexität  \textsc{ Übung 7 }
+\end{center}
+
+\begin{flushright}
+Denis Erfurt, 532437\\
+HU Berlin \\
+
+\vspace{2 mm}
+
+\end{flushright}
+
+\subsubsection*{Aufgabe 1)}
+
+Aus Übungsblatt 1 Aufgabe 1 wissen wir, dass es für eine beliebige Relationalle
+Signatur $\sigma$ und einer $\sigma$-Struktur $\mathfrak{A}$ eine Isomorphe 
+$\hat \sigma$-Struktur $\mathfrak{A}'$ wobei $\hat \sigma$ eine binäre Signatur
+ist. Sei O.b.d.A. $\hat \sigma = \{ R_1, ..., R_m\}$
+
+Um zu Zeigen: für alle $l\in\mathbb{N}$ und für alle $F\subseteq 
+\Delta_{l+1}^\sigma$ gilt:
+\[ \mu(EA_{l,F}|All(\sigma)) = 1 \] 
+genügt es zu zeigen:
+\[ \mu(\neg EA_{l,F}|All(\hat \sigma)) = 0 \]
+
+Zunächst schätzen wir $|C_n|$ ab:
+\begin{enumerate}
+  \item Es gibt ${n \choose l}$ Möglichkeiten, die Menge $T$ zu Wählen.
+  \item Es gibt ${n-l \choose l}$ Möglichkeiten, die Menge $T'$ zu Wählen.
+  \item Es gibt $m * 2^{2l \choose 2}$ Möglichkeiten Relationen über Knoten aus
+    $T\cup T'$ zu wählen.
+  \item Es gibt $m * 2^{n-2l \choose 2}$ Möglichkeiten Relationen zwischen 
+    Knoten aus $V\setminus T \cup T'$ zu wählen.
+  \item Für jeden der $(n-2l)$ Knoten z in $V\setminus (T\cup T')$ gibt es 
+    $(m*2^{2l})^{n-2l}-1$ Möglichkeiten Relationen mit Knoten aus $(T\cup T')$ 
+    zu bilden, ohne den einen Fall, der das Erweiterungsaqiom erfüllt.
+\end{enumerate}
+
+\[ |C_n| \leq {n\choose l} * {n-l \choose l} * 2^{2l \choose 2} * 
+  2^{n-2l\choose 2} * ( m * 2^{2l} - 1 )^{ n - 2l } * 2m  \] 
+
+Durch Umformung erhalten wir:
+
+\[ \frac{|C_n|}{|All(\hat \sigma)|} \leq n^{2l}*2m*(\frac{m*2^{2l}-1}{2^{2l}})^{n-2l} \] 
+
+\[ n^{2l}*2m*(\frac{m*2^{2l}-1}{2^{2l}})^{n-2l} \longrightarrow_{n \rightarrow \infty} 0\] 
+
+Damit ist gezeigt: 
+
+\[ \mu(\neg EA_{l,F}|All(\hat \sigma)) = 0 \]
+Sowie
+\[ \mu(EA_{l,F}|All(\sigma)) = 1 \]
+\qed
+
+\subsubsection*{Aufgabe 2)}
+
+
+\subsubsection*{Aufgabe 3)}
+
+\subsubsection*{Aufgabe 4)}
+
+
+
+
+
+
+\end{document}
