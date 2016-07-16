@@ -18,6 +18,21 @@
 \newcommandx{\QUESTION}[2][1=]{\todo[linecolor=none,backgroundcolor=blue!15,bordercolor=none,#1]{\textbf{QUESTION: }#2}}
 
 \pflongnumbers
+\def\assumePfkwd{\textsc{Assume}:}%
+\def\provePfkwd{\textsc{Zeige}:}%
+\def\pickPfkwd{\textsc{Pick}}%
+\def\pfnewPfkwd{\textsc{New}}%
+\def\casePfkwd{\textsc{Fall}:}%
+\def\letPfkwd{\textsc{Sei}:}%
+\def\sufficesPfkwd{\textsc{Suffices}:}%
+\def\asufficesPfkwd{\textsc{Suffices}}%
+\def\definePfkwd{\textsc{Def.}:}%
+\def\proofPfkwd{\textsc{Beweis}:}%
+\def\proofsketchPfkwd{\textsc{Proof sketch}:}%
+\def\qedPfkwd{{\fboxsep=\z@\fbox{\rule{.5em}{0pt}\rule{0pt}{2ex}}}}
+\def\qedstepPfkwd{Q.E.D.}
+
+
 
 
 
@@ -190,6 +205,39 @@ keine Verbindung zwischen den 3 Steinen herstellen. Somit ist es kein partialler
  \label{}
 \end{figure}
 
+(1) Sei M eine Menge von r-lokalen Formeln. Dann ist $\phi\in BC(M)$ ebenfalls r-lokal.
+
+(2) Sei M eine Menge von Formeln und sei $\psi\in M$ nicht r-lokal. Dann ist $\phi\in BC(M)$ und \phi beinhaltet $\psi$ nicht r-lokal.
+
+
+
+geg. $\phi(x_1,...,x_k)$
+
+ges.: Ist $\phi$ r-lokal?
+
+\begin{enumerate}
+  \item Forme $\phi$ zu $\phi'$ um.
+  \item \begin{enumerate}
+    \item Forme $\psi'$ in die pränexte normalform um.
+    \item Forme $\forall x$ um in $\neg \exists x \neg$ und entferne $\neg \neg$ 
+    \item Forme $\exists x_1 ... \exists x_l \psi$ mit um zu 
+      $\exists x_1 ... \exists x_l \psi'$ mit $\psi'$ ist in $KNF$
+    \item Vereinfache: Steht $\psi$ und $\neg \psi$ in einer verundung. Lösche die Verundung.\\
+      Steht: $\psi$ in einer beliebigen Verundung und $\neg \psi$ in einer anderen beliebigen Verundung.
+      Lösche alle vorkommen von $\psi$ und $\neg \psi$
+  \end{enumerate}
+\end{enumerate}
+
+$\phi'$ hat die Form $[\neg] \exists x_1 ... [\neg] \exists x_l \bigvee_{i\in I} \bigwedge_{j \in J_i} \psi_{i,j}    $ mit $\psi_{i,j}$ ist aomar.
+
+Für alle $J_i$ betrachte die Menge $M_i := \{\psi_{i,j}|j\in J\}$ sowie $M_i^+:= \{\psi_{i,j}|j\in J\text{ und }\psi\text{ ist nicht negiert.}\}$
+
+$\mathcal{G}(M^+_i)$ ist ein Geifmann-Graph. mit $G:=frei(M_i)$
+
+Für jedes $\psi \in M_i\setminus M_i^+$ und $x,y\in frei(\psi)$ teste ob $dist(x,y)>r$ in $\mathcal{G}(M^+_i)$. Falls ja, so ist $\phi$ nach (2) nicht r-lokal.
+
+
+
 % \begin{proof}
 %   \step{<1>1}{ \pflet{ $\phi$ ist atomar. } }
 %   \step{<1>2}{ $\phi$ ist lokal um $frei(\phi)$ }
@@ -216,10 +264,10 @@ keine Verbindung zwischen den 3 Steinen herstellen. Somit ist es kein partialler
 %       \step{<2>6} {\pflet{ $\mathfrak{A}\models \varphi_2[\bar a]$ }}
 %       \step{<2>7} {$\mathfrak{A}\models (\varphi_1 \land \varphi_2)[\bar a]$}
 %       \step{<2>8} {$\mathcal{N}_r^\mathfrak{A} \models \varphi_1[\bar a]$
-%         
+%
 %         \pf \stepref{<1>5}, Def. r-lokal }
 %       \step{<2>9} {$\mathcal{N}_r^\mathfrak{A} \models \varphi_2[\bar a]$
-%         
+%
 %         \pf \stepref{<1>5}, Def. r-lokal}
 %       \step{<2>10}{$\mathcal{N}_r^\mathfrak{A} \models (\varphi_1 \land \varphi_2)[\bar a]$}
 %       \qedstep \pf \stepref{<2>10}, \stepref{<2>7}
@@ -227,8 +275,8 @@ keine Verbindung zwischen den 3 Steinen herstellen. Somit ist es kein partialler
 %   }
 %   \step{} {$\rightarrow, \leftrightarrow, \lor$ lassen sich durch Kombinationen der anderen Fälle darstellen.}
 %   \step{} {}
-%   
-%   
+%
+%
 % \end{proof}
 
 \subsection*{Aufgabe 4)}
